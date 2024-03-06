@@ -97,7 +97,6 @@ class Carv(Account):
             if mint_status == 'not_started':
                 response = await self.check_in(chain_id)
                 data = response['data']
-                logger.info(f"[{self.account_id}][{self.address}] {response}")
                 if chain != "ronin":
                     await self.make_transaction(chain, data)
                 logger.success(f"[{self.account_id}][{self.address}] Successfully minted on {chain.capitalize()}")
